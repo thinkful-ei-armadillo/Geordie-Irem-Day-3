@@ -110,14 +110,19 @@
 // console.log(loaf.flour, loaf.water)
 // console.log(loaf.hydration())
 
-const obj = {
-  foo: 'foo', 
-  bar: 'bar', 
-  fum: 'fum', 
-  quux: 'quux', 
-  spam: 'spam',
+// const obj = {
+//   foo: 'foo', 
+//   bar: 'bar', 
+//   fum: 'fum', 
+//   quux: 'quux', 
+//   spam: 'spam',
+// }
+// for (const key in obj){
+//   const value = obj[key];
+//   console.log(key+' ' + value);
+// }
+
+const hobbit = {
+    meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
 }
-for (const key in obj){
-  const value = obj[key];
-  console.log(key+' ' + value);
-}
+console.log(hobbit.meals[3]);
