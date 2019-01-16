@@ -144,42 +144,76 @@
 //         console.log(`${newArray[i].jobTitle} ${newArray[i].name} reports to ${newArray[i].boss}`)
 //     }
 
-function decode(string) {
-  const words=string.split(' ');
-  let resultArray = ''; 
-  let step = '';
-  for (let i=0; i<words.length; i++){
-    if (words[i].slice(0,1) === 'a'){
-      // step=words[i].slice(1,2);
-      // step += words[i][decipher.a-1]
+// function decode(string) {
+//   const words=string.split(' ');
+//   let resultArray = ''; 
+//   let step = '';
+//   for (let i=0; i<words.length; i++){
+//     if (words[i].slice(0,1) === 'a'){
+//       // step=words[i].slice(1,2);
+//       // step += words[i][decipher.a-1]
+//     }
+//     else if (words[i].slice(0,1) === 'b'){
+//       step=words[i].slice(2,3);
+//     }
+//     else if (words[i].slice(0,1) === 'c'){
+//       step=words[i].slice(3,4);
+//     }
+//     else if (words[i].slice(0,1) === 'd'){
+//       step=words[i].slice(4,5);
+//     } 
+//     else {
+//       step=' ';
+//     } 
+//     resultArray += step;
+//   }
+//   return resultArray; 
+// }
+
+// function decodedWords(obj){
+//   let str2 ='';
+//   for(const key in obj){
+//     console.log(decode(key)); 
+//     str2 =+ decode(key);
+//   }
+//   return str2;
+// }
+// const decipher ={a:2, b:3, c:4, d:5}
+// decipher(a-1);
+// const myObj ={craft: 'block', argon: 'meter', bells: 'brown', croon: 'droop'}
+// console.log(decodedWords(myObj));
+// console.log(decode('craft block argon meter bells brown croon droop'));
+
+function createCharacter(name, nickname, race, origin, att, def, weap) {
+    return {
+        name, nickname, race, origin, att, def, weap,
+        describe: function() {
+            return `${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weap}`;
+        },
+        evaluateFight: function(character) {
+            if(this.att > character.def) {
+                return 'Your opponent takes ' + (this.att - character.def) + ' damage.';
+            }
+            else{
+                return 'Your opponent takes zero damage.';
+            }
+        }
     }
-    else if (words[i].slice(0,1) === 'b'){
-      step=words[i].slice(2,3);
-    }
-    else if (words[i].slice(0,1) === 'c'){
-      step=words[i].slice(3,4);
-    }
-    else if (words[i].slice(0,1) === 'd'){
-      step=words[i].slice(4,5);
-    } 
-    else {
-      step=' ';
-    } 
-    resultArray += step;
-  }
-  return resultArray; 
 }
 
-function decodedWords(obj){
-  let str2 ='';
-  for(const key in obj){
-    console.log(decode(key)); 
-    str2 =+ decode(key);
-  }
-  return str2;
-}
-const decipher ={a:2, b:3, c:4, d:5}
-decipher(a-1);
-const myObj ={craft: 'block', argon: 'meter', bells: 'brown', croon: 'droop'}
-console.log(decodedWords(myObj));
-console.log(decode('craft block argon meter bells brown croon droop'));
+let characters = [
+    createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6, 'Wizard Staff'),
+    createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1, 'Ring'),
+    createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'Barrow Blade'),
+    createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Andurll'),
+    createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Hadfafang')
+];
+
+characters.push(createCharacter('Arwen Undomiel', 'arwen,', 'Half-Elf', 'Rivendell', 7, 8));
+
+const found = characters.find(function(finder) {
+    return finder.nickname == 'aragorn';
+});
+// console.log(found.describe());
+const hobArr = characters.filter(elements => elements.race == 'Hobbit');
+const strong = characters.filter(elements => elements.att >= 5);
