@@ -18,6 +18,61 @@ function updateObject(obj) {
     return obj;   
 }
 
-const myObj = createMyObject();
-console.log(myObj);
-console.log(updateObject(myObj));
+// const myObj = createMyObject();
+// console.log(myObj);
+// console.log(updateObject(myObj));
+
+function personMaker() {
+    const person = {
+        firstName: 'Paul',
+        lastName: 'Jones',
+        // replace `null` with a function that uses self reference to return
+        // full name
+        fullName: function () {
+            return `${this.firstName} ${this.lastName}`;
+        },
+    };
+    return person;
+}
+// const person =personMaker();
+// console.log(person.fullName());
+
+function modifyKeyDeletor(obj) {
+    delete obj.foo;
+    delete obj.bar;
+    return obj;
+}
+// console.log(modifyKeyDeletor(myObj));
+
+function makeStudentsReport(data) {
+    let report = [];
+    for (let i = 0; i < data.length; i++) {
+        report[i] = `${data[i].name}: ${data[i].grade}`;
+    }
+    return report;
+}
+
+const studentData = [
+    {
+        name: 'Tim',
+        status: 'Current student',
+        course: 'Biology',
+    },
+    {
+        name: 'Sue',
+        status: 'Withdrawn',
+        course: 'Mathematics',
+    },
+    {
+        name: 'Liz',
+        status: 'On leave',
+        course: 'Computer science',
+    },
+];
+
+function enrollInSummerSchool(students) {
+    for (let i = 0; i < students.length; i++) {
+        students[i].status = 'In Summer school';
+    }
+    return students;
+}
