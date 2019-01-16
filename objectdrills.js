@@ -43,4 +43,3 @@ function modifyKeyDeletor(obj){
   delete obj.bar;
   return obj;
 }
-// console.log(modifyKeyDeletor(myObj));
