@@ -122,7 +122,18 @@
 //   console.log(key+' ' + value);
 // }
 
-const hobbit = {
-    meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+// const hobbit = {
+//     meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+// }
+// console.log(hobbit.meals[3]);
+function createPerson(name, jobTitle) { 
+ return {
+   name, 
+   jobTitle,
+ }
 }
-console.log(hobbit.meals[3]);
+const first = createPerson('secil' ,'dev');
+const sec = createPerson('geor','dev');
+const thir = createPerson ('joe', 'paint');
+let newArray = [first,sec, thir];
+console.log(newArray);
