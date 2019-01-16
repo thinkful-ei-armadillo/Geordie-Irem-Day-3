@@ -85,4 +85,17 @@ function enrollInSummerSchool(students) {
     }
   }
 }
-
+function validateKeys(object, expectedKeys) {
+  const newArray = Object.keys(object);
+  if (newArray.length !== expectedKeys.length) {
+    return false;
+  }
+  for (let i=0; i<newArray.length; i++) {
+    if (newArray[i] === expectedKeys[i]){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
