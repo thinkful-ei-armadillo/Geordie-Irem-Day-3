@@ -126,22 +126,60 @@
 //     meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
 // }
 // console.log(hobbit.meals[3]);
-function createPerson(name, jobTitle, boss) { 
-return {
-   name, 
-   jobTitle,
-   boss
- }
-}
-const first = createPerson('secil' ,'dev', 'Rich');
-const sec = createPerson('geor','dev', 'Rich');
-const thir = createPerson ('joe', 'paint');
-let newArray = [first,sec, thir];
-for(let i = 0; i < newArray.length; i++){
-    if(!newArray[i].boss) {
-        console.log(`${newArray[i].jobTitle} ${newArray[i].name} does not report to anyone.`)
-    } else {
-        console.log(`${newArray[i].jobTitle} ${newArray[i].name} reports to ${newArray[i].boss}`)
+// function createPerson(name, jobTitle, boss) { 
+// return {
+//    name, 
+//    jobTitle,
+//    boss
+//  }
+// }
+// const first = createPerson('secil' ,'dev', 'Rich');
+// const sec = createPerson('geor','dev', 'Rich');
+// const thir = createPerson ('joe', 'paint');
+// let newArray = [first,sec, thir];
+// for(let i = 0; i < newArray.length; i++){
+//     if(!newArray[i].boss) {
+//         console.log(`${newArray[i].jobTitle} ${newArray[i].name} does not report to anyone.`)
+//     } else {
+//         console.log(`${newArray[i].jobTitle} ${newArray[i].name} reports to ${newArray[i].boss}`)
+//     }
+
+function decode(string) {
+  const words=string.split(' ');
+  let resultArray = ''; 
+  let step = '';
+  for (let i=0; i<words.length; i++){
+    if (words[i].slice(0,1) === 'a'){
+      // step=words[i].slice(1,2);
+      // step += words[i][decipher.a-1]
     }
+    else if (words[i].slice(0,1) === 'b'){
+      step=words[i].slice(2,3);
+    }
+    else if (words[i].slice(0,1) === 'c'){
+      step=words[i].slice(3,4);
+    }
+    else if (words[i].slice(0,1) === 'd'){
+      step=words[i].slice(4,5);
+    } 
+    else {
+      step=' ';
+    } 
+    resultArray += step;
+  }
+  return resultArray; 
 }
 
+function decodedWords(obj){
+  let str2 ='';
+  for(const key in obj){
+    console.log(decode(key)); 
+    str2 =+ decode(key);
+  }
+  return str2;
+}
+const decipher ={a:2, b:3, c:4, d:5}
+decipher(a-1);
+const myObj ={craft: 'block', argon: 'meter', bells: 'brown', croon: 'droop'}
+console.log(decodedWords(myObj));
+console.log(decode('craft block argon meter bells brown croon droop'));
