@@ -1,4 +1,4 @@
-// 'use strict'; 
+'use strict'; 
 // function createMyObject() {
 //   const myObject = {
 //     foo: 'bar',
@@ -100,12 +100,24 @@
 //   }
 // }
 
-const loaf = {
-    flour: 300,
-    water: 210,
-    hydration: function() {
-        return this.flour / this.water * 100
-    }
+// const loaf = {
+//     flour: 300,
+//     water: 210,
+//     hydration: function() {
+//         return this.flour / this.water * 100
+//     }
+// }
+// console.log(loaf.flour, loaf.water)
+// console.log(loaf.hydration())
+
+const obj = {
+  foo: 'foo', 
+  bar: 'bar', 
+  fum: 'fum', 
+  quux: 'quux', 
+  spam: 'spam',
 }
-console.log(loaf.flour, loaf.water)
-console.log(loaf.hydration())
+for (const key in obj){
+  const value = obj[key];
+  console.log(key+' ' + value);
+}
