@@ -126,14 +126,22 @@
 //     meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
 // }
 // console.log(hobbit.meals[3]);
-function createPerson(name, jobTitle) { 
- return {
+function createPerson(name, jobTitle, boss) { 
+return {
    name, 
    jobTitle,
+   boss
  }
 }
-const first = createPerson('secil' ,'dev');
-const sec = createPerson('geor','dev');
+const first = createPerson('secil' ,'dev', 'Rich');
+const sec = createPerson('geor','dev', 'Rich');
 const thir = createPerson ('joe', 'paint');
 let newArray = [first,sec, thir];
-console.log(newArray);
+for(let i = 0; i < newArray.length; i++){
+    if(!newArray[i].boss) {
+        console.log(`${newArray[i].jobTitle} ${newArray[i].name} does not report to anyone.`)
+    } else {
+        console.log(`${newArray[i].jobTitle} ${newArray[i].name} reports to ${newArray[i].boss}`)
+    }
+}
+
