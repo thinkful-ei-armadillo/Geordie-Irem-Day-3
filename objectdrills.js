@@ -24,58 +24,58 @@ function updateObject(obj) {
 // console.log(updateObject(myObj));
 
 function personMaker() {
-    const person = {
-        firstName: 'Paul',
-        lastName: 'Jones',
-        // replace `null` with a function that uses self reference to return
-        // full name
-        fullName: function () {
-            return `${this.firstName} ${this.lastName}`;
-        },
-    };
-    return person;
+  const person = {
+    firstName: 'Paul',
+    lastName: 'Jones',
+    // replace `null` with a function that uses self reference to return
+    // full name
+    fullName: function () {
+      return `${this.firstName} ${this.lastName}`;
+    },
+  };
+  return person;
 }
 // const person =personMaker();
 // console.log(person.fullName());
 
 function modifyKeyDeletor(obj) {
-    delete obj.foo;
-    delete obj.bar;
-    return obj;
+  delete obj.foo;
+  delete obj.bar;
+  return obj;
 }
 // console.log(modifyKeyDeletor(myObj));
 
 function makeStudentsReport(data) {
-    let report = [];
-    for (let i = 0; i < data.length; i++) {
-        report[i] = `${data[i].name}: ${data[i].grade}`;
-    }
-    return report;
+  let report = [];
+  for (let i = 0; i < data.length; i++) {
+    report[i] = `${data[i].name}: ${data[i].grade}`;
+  }
+  return report;
 }
 
 const studentData = [
-    {
-        name: 'Tim',
-        status: 'Current student',
-        course: 'Biology',
-    },
-    {
-        name: 'Sue',
-        status: 'Withdrawn',
-        course: 'Mathematics',
-    },
-    {
-        name: 'Liz',
-        status: 'On leave',
-        course: 'Computer science',
-    },
+  {
+    name: 'Tim',
+    status: 'Current student',
+    course: 'Biology',
+  },
+  {
+    name: 'Sue',
+    status: 'Withdrawn',
+    course: 'Mathematics',
+  },
+  {
+    name: 'Liz',
+    status: 'On leave',
+    course: 'Computer science',
+  },
 ];
 
 function enrollInSummerSchool(students) {
-    for (let i = 0; i < students.length; i++) {
-        students[i].status = 'In Summer school';
-    }
-    return students;
+  for (let i = 0; i < students.length; i++) {
+    students[i].status = 'In Summer school';
+  }
+  return students;
 }
 
 function findById(items, idNum) {
@@ -101,11 +101,11 @@ function validateKeys(object, expectedKeys) {
 }
 
 const loaf = {
-    flour: 300,
-    water: 210,
-    hydration: function() {
-        return this.flour / this.water * 100
-    }
+  flour: 300,
+  water: 210,
+  hydration: function() {
+    return this.flour / this.water * 100
+  }
 }
 console.log(loaf.flour, loaf.water)
 console.log(loaf.hydration())
@@ -123,83 +123,84 @@ for (const key in obj){
 }
 
 const hobbit = {
-    meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
 }
 console.log(hobbit.meals[3]);
 function createPerson(name, jobTitle, boss) { 
-return {
-   name, 
-   jobTitle,
-   boss
- }
+  return {
+    name, 
+    jobTitle,
+    boss
+  }
 }
 const first = createPerson('secil' ,'dev', 'Rich');
 const sec = createPerson('geor','dev', 'Rich');
 const thir = createPerson ('joe', 'paint');
 let newArray = [first,sec, thir];
 for(let i = 0; i < newArray.length; i++){
-    if(!newArray[i].boss) {
-        console.log(`${newArray[i].jobTitle} ${newArray[i].name} does not report to anyone.`)
-    } else {
-        console.log(`${newArray[i].jobTitle} ${newArray[i].name} reports to ${newArray[i].boss}`)
-    }
+  if(!newArray[i].boss) {
+    console.log(`${newArray[i].jobTitle} ${newArray[i].name} does not report to anyone.`);
+  } else {
+    console.log(`${newArray[i].jobTitle} ${newArray[i].name} reports to ${newArray[i].boss}`);
+  }
+}
 const decipher ={a:2, b:3, c:4, d:5};
 
 function decode(message) {
-    let letters = [];
-    let message_array = message.split(' ');
-    for (let i = 0; i < message_array.length; i++) {
-        if (message_array[i][0] === 'a') {
-            letters.push(message_array[i][decipher.a-1]);
-        }
-        else if (message_array[i][0] === 'b') {
-            letters.push(message_array[i][decipher.b-1]);
-        }
-        else if (message_array[i][0] === 'c') {
-            letters.push(message_array[i][decipher.c-1]);
-        }
-        else if (message_array[i][0] === 'd') {
-            letters.push(message_array[i][decipher.d-1]);
-        }
-        else {
-            letters.push(' ');
-        }
+  let letters = [];
+  let message_array = message.split(' ');
+  for (let i = 0; i < message_array.length; i++) {
+    if (message_array[i][0] === 'a') {
+      letters.push(message_array[i][decipher.a-1]);
     }
-    let result = letters.join('');
-    console.log(result); 
+    else if (message_array[i][0] === 'b') {
+      letters.push(message_array[i][decipher.b-1]);
+    }
+    else if (message_array[i][0] === 'c') {
+      letters.push(message_array[i][decipher.c-1]);
+    }
+    else if (message_array[i][0] === 'd') {
+      letters.push(message_array[i][decipher.d-1]);
+    }
+    else {
+      letters.push(' ');
+    }
+  }
+  let result = letters.join('');
+  console.log(result); 
 }
 console.log(decode('craft block argon meter bells brown croon droop'));
 
 function createCharacter(name, nickname, race, origin, att, def, weap) {
-    return {
-        name, nickname, race, origin, att, def, weap,
-        describe: function() {
-            return `${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weap}`;
-        },
-        evaluateFight: function(character) {
-            if(this.att > character.def) {
-                return 'Your opponent takes ' + (this.att - character.def) + ' damage.';
-            }
-            else{
-                return 'Your opponent takes zero damage.';
-            }
-        }
+  return {
+    name, nickname, race, origin, att, def, weap,
+    describe: function() {
+      return `${this.name} is a ${this.race} from ${this.origin} who uses a ${this.weap}`;
+    },
+    evaluateFight: function(character) {
+      if(this.att > character.def) {
+        return 'Your opponent takes ' + (this.att - character.def) + ' damage.';
+      }
+      else{
+        return 'Your opponent takes zero damage.';
+      }
     }
+  }
 }
 
 let characters = [
-    createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6, 'Wizard Staff'),
-    createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1, 'Ring'),
-    createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'Barrow Blade'),
-    createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Andurll'),
-    createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Hadfafang')
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6, 'Wizard Staff'),
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1, 'Ring'),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'Barrow Blade'),
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Andurll'),
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Hadfafang')
 ];
 
 characters.push(createCharacter('Arwen Undomiel', 'arwen,', 'Half-Elf', 'Rivendell', 7, 8));
 
 const found = characters.find(function(finder) {
-    return finder.nickname == 'aragorn';
+  return finder.nickname == 'aragorn';
 });
-// console.log(found.describe());
+console.log(found.describe());
 const hobArr = characters.filter(elements => elements.race == 'Hobbit');
 const strong = characters.filter(elements => elements.att >= 5);
